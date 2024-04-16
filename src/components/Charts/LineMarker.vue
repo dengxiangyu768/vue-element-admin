@@ -49,7 +49,7 @@ export default {
         backgroundColor: '#394056',
         title: {
           top: 20,
-          text: 'Requests',
+          text: '各车型生产走势',
           textStyle: {
             fontWeight: 'normal',
             fontSize: 16,
@@ -71,7 +71,7 @@ export default {
           itemWidth: 14,
           itemHeight: 5,
           itemGap: 13,
-          data: ['CMCC', 'CTCC', 'CUCC'],
+          data: ['特种车', '轻卡', '救护车'],
           right: '4%',
           textStyle: {
             fontSize: 12,
@@ -119,7 +119,7 @@ export default {
           }
         }],
         series: [{
-          name: 'CMCC',
+          name: '特种车',
           type: 'line',
           smooth: true,
           symbol: 'circle',
@@ -153,7 +153,7 @@ export default {
           },
           data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
         }, {
-          name: 'CTCC',
+          name: '轻卡',
           type: 'line',
           smooth: true,
           symbol: 'circle',
@@ -187,7 +187,7 @@ export default {
           },
           data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
         }, {
-          name: 'CUCC',
+          name: '救护车',
           type: 'line',
           smooth: true,
           symbol: 'circle',

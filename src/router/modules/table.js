@@ -5,15 +5,17 @@ import Layout from '@/layout'
 const tableRouter = {
   path: '/table',
   component: Layout,
+  hidden: true,
   redirect: '/table/complex-table',
   name: 'Table',
   meta: {
-    title: 'Table',
+    title: '工厂',
     icon: 'table'
   },
   children: [
     {
       path: 'dynamic-table',
+      hidden: true,
       component: () => import('@/views/table/dynamic-table/index'),
       name: 'DynamicTable',
       meta: { title: 'Dynamic Table' }
@@ -22,10 +24,11 @@ const tableRouter = {
       path: 'drag-table',
       component: () => import('@/views/table/drag-table'),
       name: 'DragTable',
-      meta: { title: 'Drag Table' }
+      meta: { title: '生产进度日志' }
     },
     {
       path: 'inline-edit-table',
+      hidden: true,
       component: () => import('@/views/table/inline-edit-table'),
       name: 'InlineEditTable',
       meta: { title: 'Inline Edit' }
@@ -34,7 +37,7 @@ const tableRouter = {
       path: 'complex-table',
       component: () => import('@/views/table/complex-table'),
       name: 'ComplexTable',
-      meta: { title: 'Complex Table' }
+      meta: { title: '产品' }
     }
   ]
 }

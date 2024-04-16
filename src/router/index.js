@@ -7,10 +7,11 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
+// import componentsRouter from './modules/components'
+
 import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
+import chartsRouter from './modules/charts'
+// import nestedRouter from './modules/nested'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -79,13 +80,39 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '首页', icon: 'dashboard', affix: true }
       }
     ]
   },
   {
+    path: '/factory',
+    component: Layout,
+    children: [
+      {
+        path: 'drag-table',
+        component: () => import('@/views/table/drag-table'),
+        name: 'DragTable',
+        meta: { title: '产品生产日志', icon: 'documentation' }
+      }
+    ]
+  },
+  {
+    path: '/factory',
+    component: Layout,
+    children: [
+      {
+        path: 'complex-table',
+        component: () => import('@/views/table/complex-table'),
+        name: 'DragTable',
+        meta: { title: '产品状态', icon: 'icon' }
+      }
+    ]
+  },
+  {
+
     path: '/documentation',
     component: Layout,
+    hidden: true,
     children: [
       {
         path: 'index',
@@ -98,6 +125,7 @@ export const constantRoutes = [
   {
     path: '/guide',
     component: Layout,
+    hidden: true,
     redirect: '/guide/index',
     children: [
       {
@@ -129,6 +157,9 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  chartsRouter,
+  // nestedRouter,
+  tableRouter,
   {
     path: '/permission',
     component: Layout,
@@ -136,7 +167,7 @@ export const asyncRoutes = [
     alwaysShow: true, // will always show the root menu
     name: 'Permission',
     meta: {
-      title: 'Permission',
+      title: '用户管理',
       icon: 'lock',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
@@ -146,7 +177,7 @@ export const asyncRoutes = [
         component: () => import('@/views/permission/page'),
         name: 'PagePermission',
         meta: {
-          title: 'Page Permission',
+          title: '页面权限',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
@@ -155,7 +186,7 @@ export const asyncRoutes = [
         component: () => import('@/views/permission/directive'),
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: '目录权限'
           // if do not set roles, means: this page does not require permission
         }
       },
@@ -164,7 +195,7 @@ export const asyncRoutes = [
         component: () => import('@/views/permission/role'),
         name: 'RolePermission',
         meta: {
-          title: 'Role Permission',
+          title: '角色',
           roles: ['admin']
         }
       }
@@ -174,6 +205,7 @@ export const asyncRoutes = [
   {
     path: '/icon',
     component: Layout,
+    hidden: true,
     children: [
       {
         path: 'index',
@@ -185,13 +217,11 @@ export const asyncRoutes = [
   },
 
   /** when your routing map is too long, you can split it into small modules **/
-  componentsRouter,
-  chartsRouter,
-  nestedRouter,
-  tableRouter,
+  // componentsRouter,
 
   {
     path: '/example',
+    hidden: true,
     component: Layout,
     redirect: '/example/list',
     name: 'Example',
@@ -225,6 +255,7 @@ export const asyncRoutes = [
   {
     path: '/tab',
     component: Layout,
+    hidden: true,
     children: [
       {
         path: 'index',
@@ -238,6 +269,7 @@ export const asyncRoutes = [
   {
     path: '/error',
     component: Layout,
+    hidden: true,
     redirect: 'noRedirect',
     name: 'ErrorPages',
     meta: {
@@ -262,6 +294,7 @@ export const asyncRoutes = [
 
   {
     path: '/error-log',
+    hidden: true,
     component: Layout,
     children: [
       {
@@ -275,6 +308,7 @@ export const asyncRoutes = [
 
   {
     path: '/excel',
+    hidden: true,
     component: Layout,
     redirect: '/excel/export-excel',
     name: 'Excel',
@@ -313,6 +347,7 @@ export const asyncRoutes = [
   {
     path: '/zip',
     component: Layout,
+    hidden: true,
     redirect: '/zip/download',
     alwaysShow: true,
     name: 'Zip',
@@ -329,6 +364,7 @@ export const asyncRoutes = [
 
   {
     path: '/pdf',
+    hidden: true,
     component: Layout,
     redirect: '/pdf/index',
     children: [
@@ -348,6 +384,7 @@ export const asyncRoutes = [
 
   {
     path: '/theme',
+    hidden: true,
     component: Layout,
     children: [
       {
@@ -361,6 +398,7 @@ export const asyncRoutes = [
 
   {
     path: '/clipboard',
+    hidden: true,
     component: Layout,
     children: [
       {
@@ -374,6 +412,7 @@ export const asyncRoutes = [
 
   {
     path: 'external-link',
+    hidden: true,
     component: Layout,
     children: [
       {
