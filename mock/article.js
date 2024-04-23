@@ -10,7 +10,8 @@ for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
     timestamp: +Mock.Random.date('T'),
-    author: '@first',
+    // author: '@first',
+    author: '邓翔宇',
     reviewer: '@first',
     title: '@title(5, 10)',
     content_short: 'mock data',
@@ -18,7 +19,7 @@ for (let i = 0; i < count; i++) {
     forecast: '@float(0, 100, 2, 2)',
     importance: '@integer(1, 3)',
     'type|1': ['CN', 'US', 'JP', 'EU'],
-    'status|1': ['published', 'draft'],
+    'status|1': ['完成', '生产中'],
     display_time: '@datetime',
     comment_disabled: true,
     pageviews: '@integer(300, 5000)',

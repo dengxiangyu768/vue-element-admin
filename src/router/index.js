@@ -74,6 +74,7 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
+    hidden: true,
     redirect: '/dashboard',
     children: [
       {
@@ -102,7 +103,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'complex-table',
-        component: () => import('@/views/table/complex-table'),
+        component: () => import('@/views/table/product-create'),
         name: 'DragTable',
         meta: { title: '产品状态', icon: 'icon' }
       }
